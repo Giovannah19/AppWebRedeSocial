@@ -1,0 +1,109 @@
+﻿@model  SocialCode.Models.Usuario
+@{
+    ViewBag.Title = "Editar";
+}
+
+<div class="profile-bnr sub-bnr user-profile-bnr">
+    <div class="position-center-center">
+        <div class="container">
+            <h2>Editar Perfil</h2>
+        </div>
+    </div>
+</div>
+
+<div class="blog-content pt60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+
+                <h4>Editar Perfil</h4>
+
+                <div class="uou-post-comment-form">
+                    <form role="form">
+                        <div class="row">
+                            <div class="col-sm-12">
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.nome, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.nome)
+                                        @Html.ValidationMessageFor(model => model.nome)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.dt_nascimento, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.dt_nascimento)
+                                        @Html.ValidationMessageFor(model => model.dt_nascimento)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.sexo, "Sexo", new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.DropDownList("Sexo", String.Empty)
+                                        @Html.ValidationMessageFor(model => model.sexo)
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.interesses, new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.interesses)
+                                        @Html.ValidationMessageFor(model => model.interesses)
+                                    </div>
+                                </div>
+
+                                <input type="text" placeholder="Nome"> 
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" placeholder="Idade">
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="text" placeholder="Sexo">
+                            </div>
+                            <div class="col-sm-12">
+
+                                <input type="text" placeholder="Interesses">
+                                <label for="exemplo">Campo checkbox: </label> <br>
+                                <input type="checkbox" name="vehicle1" value="Bike"> Java<br>
+                                <input type="checkbox" name="vehicle2" value="Car"> PHP<br>
+                                <input type="checkbox" name="vehicle3" value="Boat" checked> Python<br>
+
+                            < <!--  
+                                <span>Primeira Opção</span>
+                                <input type="checkbox" name="exemplo" value="0" id="valor-1">
+                                <span>Opção Alternativa</span>
+                                  -->
+                            </div>
+
+                            <
+                            <div class="col-sm-12">
+                                <input type="text" placeholder="Formação">
+                            </div>
+                            <div class="col-sm-12">
+                                <input type="email" placeholder="Git">
+                            </div>
+
+                            <div class="col-sm-12">
+                                <textarea placeholder="Your comment"></textarea>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <button class="btn btn-primary">Salvar</button>
+                            </div>
+
+                        </div> <!-- end row -->
+                    </form>
+                </div>
+            </div>
+
+        </div> <!-- end grid layout -->
+
+
+    </div> <!-- end row -->
+
+</div> <!-- edn cotainer -->
+

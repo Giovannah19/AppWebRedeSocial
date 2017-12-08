@@ -1,0 +1,21 @@
+﻿@model SocialCode.ViewModels.LoginViewModel
+
+
+@using (Html.BeginForm("Logar", "Autenticacao", FormMethod.Post, new { id = "formLogar" }))
+{
+
+
+
+
+
+    @Html.ValidationMessageFor(x => x.Email);
+    @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email" })
+
+    @Html.ValidationMessageFor(x => x.Senha);
+    @Html.PasswordFor(x => x.Senha, new { @placeholder = "Senha" })
+
+
+    <button type="submit">Entrar</button>
+
+
+}

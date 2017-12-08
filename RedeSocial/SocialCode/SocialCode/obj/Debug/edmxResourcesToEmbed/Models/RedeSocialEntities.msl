@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RedeSocialModelStoreContainer" CdmEntityContainer="RedeSocialEntities1">
+    <EntitySetMapping Name="Comentarios">
+      <EntityTypeMapping TypeName="RedeSocialModel.Comentarios">
+        <MappingFragment StoreEntitySet="Comentarios">
+          <ScalarProperty Name="coment_id" ColumnName="coment_id" />
+          <ScalarProperty Name="descricao_coment" ColumnName="descricao_coment" />
+          <ScalarProperty Name="dt_coment" ColumnName="dt_coment" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="id_post" ColumnName="id_post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Conta">
+      <EntityTypeMapping TypeName="RedeSocialModel.Conta">
+        <MappingFragment StoreEntitySet="Conta">
+          <ScalarProperty Name="id_tipoconta" ColumnName="id_tipoconta" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curtidas">
+      <EntityTypeMapping TypeName="RedeSocialModel.Curtidas">
+        <MappingFragment StoreEntitySet="Curtidas">
+          <ScalarProperty Name="curtida_id" ColumnName="curtida_id" />
+          <ScalarProperty Name="dt_curtida" ColumnName="dt_curtida" />
+          <ScalarProperty Name="id_post" ColumnName="id_post" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Grupo">
+      <EntityTypeMapping TypeName="RedeSocialModel.Grupo">
+        <MappingFragment StoreEntitySet="Grupo">
+          <ScalarProperty Name="grupo_id" ColumnName="grupo_id" />
+          <ScalarProperty Name="grupo_nome" ColumnName="grupo_nome" />
+          <ScalarProperty Name="criador_grupo" ColumnName="criador_grupo" />
+          <ScalarProperty Name="dt_criacao" ColumnName="dt_criacao" />
+          <ScalarProperty Name="gp_tipo" ColumnName="gp_tipo" />
+          <ScalarProperty Name="icone" ColumnName="icone" />
+          <ScalarProperty Name="gp_descricao" ColumnName="gp_descricao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postagem">
+      <EntityTypeMapping TypeName="RedeSocialModel.Postagem">
+        <MappingFragment StoreEntitySet="Postagem">
+          <ScalarProperty Name="post_id" ColumnName="post_id" />
+          <ScalarProperty Name="post_descricao" ColumnName="post_descricao" />
+          <ScalarProperty Name="dt_post" ColumnName="dt_post" />
+          <ScalarProperty Name="anexo" ColumnName="anexo" />
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sexo">
+      <EntityTypeMapping TypeName="RedeSocialModel.Sexo">
+        <MappingFragment StoreEntitySet="Sexo">
+          <ScalarProperty Name="id_sexo" ColumnName="id_sexo" />
+          <ScalarProperty Name="genero" ColumnName="genero" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="RedeSocialModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tipo_grupo">
+      <EntityTypeMapping TypeName="RedeSocialModel.Tipo_grupo">
+        <MappingFragment StoreEntitySet="Tipo_grupo">
+          <ScalarProperty Name="id_tipogrupo" ColumnName="id_tipogrupo" />
+          <ScalarProperty Name="tipo_gp" ColumnName="tipo_gp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="RedeSocialModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="dt_nascimento" ColumnName="dt_nascimento" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="dt_cadastro" ColumnName="dt_cadastro" />
+          <ScalarProperty Name="interesses" ColumnName="interesses" />
+          <ScalarProperty Name="tipo_conta" ColumnName="tipo_conta" />
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario_premium">
+      <EntityTypeMapping TypeName="RedeSocialModel.Usuario_premium">
+        <MappingFragment StoreEntitySet="Usuario_premium">
+          <ScalarProperty Name="id_user" ColumnName="id_user" />
+          <ScalarProperty Name="nome_cartao" ColumnName="nome_cartao" />
+          <ScalarProperty Name="numero_cartao" ColumnName="numero_cartao" />
+          <ScalarProperty Name="senha_cartao" ColumnName="senha_cartao" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Gp_membros" TypeName="RedeSocialModel.Gp_membros" StoreEntitySet="Gp_membros">
+      <EndProperty Name="Grupo">
+        <ScalarProperty Name="grupo_id" ColumnName="id_grupo" />
+      </EndProperty>
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="id" ColumnName="id_user" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

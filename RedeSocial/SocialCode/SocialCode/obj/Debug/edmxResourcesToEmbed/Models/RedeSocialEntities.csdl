@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RedeSocialModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Comentarios">
+    <Key>
+      <PropertyRef Name="coment_id" />
+    </Key>
+    <Property Name="coment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descricao_coment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="dt_coment" Type="DateTime" Precision="3" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="id_post" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Postagem" Relationship="Self.FK__Comentari__id_po__3C69FB99" FromRole="Comentarios" ToRole="Postagem" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Comentari__id_us__3D5E1FD2" FromRole="Comentarios" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Conta">
+    <Key>
+      <PropertyRef Name="id_tipoconta" />
+    </Key>
+    <Property Name="id_tipoconta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="descricao" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__tipo_co__45F365D3" FromRole="Conta" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Curtidas">
+    <Key>
+      <PropertyRef Name="curtida_id" />
+    </Key>
+    <Property Name="curtida_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dt_curtida" Type="DateTime" Precision="3" />
+    <Property Name="id_post" Type="Int32" Nullable="false" />
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Postagem" Relationship="Self.FK__Curtidas__id_pos__3E52440B" FromRole="Curtidas" ToRole="Postagem" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Curtidas__id_use__3F466844" FromRole="Curtidas" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Grupo">
+    <Key>
+      <PropertyRef Name="grupo_id" />
+    </Key>
+    <Property Name="grupo_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="grupo_nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="criador_grupo" Type="Int32" Nullable="false" />
+    <Property Name="dt_criacao" Type="DateTime" Precision="3" />
+    <Property Name="gp_tipo" Type="Int32" Nullable="false" />
+    <Property Name="icone" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="gp_descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Grupo__criador_g__4222D4EF" FromRole="Grupo" ToRole="Usuario" />
+    <NavigationProperty Name="Tipo_grupo" Relationship="Self.FK__Grupo__gp_tipo__4316F928" FromRole="Grupo" ToRole="Tipo_grupo" />
+    <NavigationProperty Name="Usuario1" Relationship="Self.Gp_membros" FromRole="Grupo" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Postagem">
+    <Key>
+      <PropertyRef Name="post_id" />
+    </Key>
+    <Property Name="post_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="post_descricao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="dt_post" Type="DateTime" Precision="3" />
+    <Property Name="anexo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="id_user" Type="Int32" />
+    <NavigationProperty Name="Comentarios" Relationship="Self.FK__Comentari__id_po__3C69FB99" FromRole="Postagem" ToRole="Comentarios" />
+    <NavigationProperty Name="Curtidas" Relationship="Self.FK__Curtidas__id_pos__3E52440B" FromRole="Postagem" ToRole="Curtidas" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Postagem__id_use__440B1D61" FromRole="Postagem" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="id_sexo" />
+    </Key>
+    <Property Name="id_sexo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="genero" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__sexo__44FF419A" FromRole="Sexo" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tipo_grupo">
+    <Key>
+      <PropertyRef Name="id_tipogrupo" />
+    </Key>
+    <Property Name="id_tipogrupo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipo_gp" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Grupo" Relationship="Self.FK__Grupo__gp_tipo__4316F928" FromRole="Tipo_grupo" ToRole="Grupo" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="senha" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="dt_nascimento" Type="DateTime" Precision="0" />
+    <Property Name="sexo" Type="Int32" />
+    <Property Name="dt_cadastro" Type="DateTime" Precision="3" />
+    <Property Name="interesses" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="tipo_conta" Type="Int32" />
+    <Property Name="foto" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="status" Type="Boolean" />
+    <NavigationProperty Name="Comentarios" Relationship="Self.FK__Comentari__id_us__3D5E1FD2" FromRole="Usuario" ToRole="Comentarios" />
+    <NavigationProperty Name="Conta" Relationship="Self.FK__Usuario__tipo_co__45F365D3" FromRole="Usuario" ToRole="Conta" />
+    <NavigationProperty Name="Curtidas" Relationship="Self.FK__Curtidas__id_use__3F466844" FromRole="Usuario" ToRole="Curtidas" />
+    <NavigationProperty Name="Grupo" Relationship="Self.FK__Grupo__criador_g__4222D4EF" FromRole="Usuario" ToRole="Grupo" />
+    <NavigationProperty Name="Postagem" Relationship="Self.FK__Postagem__id_use__440B1D61" FromRole="Usuario" ToRole="Postagem" />
+    <NavigationProperty Name="Sexo1" Relationship="Self.FK__Usuario__sexo__44FF419A" FromRole="Usuario" ToRole="Sexo" />
+    <NavigationProperty Name="Usuario_premium" Relationship="Self.FK__Usuario_p__id_us__46E78A0C" FromRole="Usuario" ToRole="Usuario_premium" />
+    <NavigationProperty Name="Grupo1" Relationship="Self.Gp_membros" FromRole="Usuario" ToRole="Grupo" />
+  </EntityType>
+  <EntityType Name="Usuario_premium">
+    <Key>
+      <PropertyRef Name="numero_cartao" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" />
+    <Property Name="nome_cartao" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="numero_cartao" Type="Int32" Nullable="false" />
+    <Property Name="senha_cartao" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario_p__id_us__46E78A0C" FromRole="Usuario_premium" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK__Comentari__id_po__3C69FB99">
+    <End Role="Postagem" Type="Self.Postagem" Multiplicity="1" />
+    <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postagem">
+        <PropertyRef Name="post_id" />
+      </Principal>
+      <Dependent Role="Comentarios">
+        <PropertyRef Name="id_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Comentari__id_us__3D5E1FD2">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Comentarios" Type="Self.Comentarios" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Comentarios">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__tipo_co__45F365D3">
+    <End Role="Conta" Type="Self.Conta" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conta">
+        <PropertyRef Name="id_tipoconta" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="tipo_conta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Curtidas__id_pos__3E52440B">
+    <End Role="Postagem" Type="Self.Postagem" Multiplicity="1" />
+    <End Role="Curtidas" Type="Self.Curtidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postagem">
+        <PropertyRef Name="post_id" />
+      </Principal>
+      <Dependent Role="Curtidas">
+        <PropertyRef Name="id_post" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Curtidas__id_use__3F466844">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Curtidas" Type="Self.Curtidas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Curtidas">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grupo__criador_g__4222D4EF">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Grupo">
+        <PropertyRef Name="criador_grupo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Grupo__gp_tipo__4316F928">
+    <End Role="Tipo_grupo" Type="Self.Tipo_grupo" Multiplicity="1" />
+    <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_grupo">
+        <PropertyRef Name="id_tipogrupo" />
+      </Principal>
+      <Dependent Role="Grupo">
+        <PropertyRef Name="gp_tipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Postagem__id_use__440B1D61">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Postagem" Type="Self.Postagem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Postagem">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__sexo__44FF419A">
+    <End Role="Sexo" Type="Self.Sexo" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexo">
+        <PropertyRef Name="id_sexo" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="sexo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario_p__id_us__46E78A0C">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Usuario_premium" Type="Self.Usuario_premium" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Usuario_premium">
+        <PropertyRef Name="id_user" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Gp_membros">
+    <End Role="Grupo" Type="Self.Grupo" Multiplicity="*" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="RedeSocialEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Comentarios" EntityType="Self.Comentarios" />
+    <EntitySet Name="Conta" EntityType="Self.Conta" />
+    <EntitySet Name="Curtidas" EntityType="Self.Curtidas" />
+    <EntitySet Name="Grupo" EntityType="Self.Grupo" />
+    <EntitySet Name="Postagem" EntityType="Self.Postagem" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Tipo_grupo" EntityType="Self.Tipo_grupo" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Usuario_premium" EntityType="Self.Usuario_premium" />
+    <AssociationSet Name="FK__Comentari__id_po__3C69FB99" Association="Self.FK__Comentari__id_po__3C69FB99">
+      <End Role="Postagem" EntitySet="Postagem" />
+      <End Role="Comentarios" EntitySet="Comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Comentari__id_us__3D5E1FD2" Association="Self.FK__Comentari__id_us__3D5E1FD2">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Comentarios" EntitySet="Comentarios" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__tipo_co__45F365D3" Association="Self.FK__Usuario__tipo_co__45F365D3">
+      <End Role="Conta" EntitySet="Conta" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Curtidas__id_pos__3E52440B" Association="Self.FK__Curtidas__id_pos__3E52440B">
+      <End Role="Postagem" EntitySet="Postagem" />
+      <End Role="Curtidas" EntitySet="Curtidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Curtidas__id_use__3F466844" Association="Self.FK__Curtidas__id_use__3F466844">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Curtidas" EntitySet="Curtidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grupo__criador_g__4222D4EF" Association="Self.FK__Grupo__criador_g__4222D4EF">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Grupo" EntitySet="Grupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Grupo__gp_tipo__4316F928" Association="Self.FK__Grupo__gp_tipo__4316F928">
+      <End Role="Tipo_grupo" EntitySet="Tipo_grupo" />
+      <End Role="Grupo" EntitySet="Grupo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Postagem__id_use__440B1D61" Association="Self.FK__Postagem__id_use__440B1D61">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Postagem" EntitySet="Postagem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__sexo__44FF419A" Association="Self.FK__Usuario__sexo__44FF419A">
+      <End Role="Sexo" EntitySet="Sexo" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario_p__id_us__46E78A0C" Association="Self.FK__Usuario_p__id_us__46E78A0C">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Usuario_premium" EntitySet="Usuario_premium" />
+    </AssociationSet>
+    <AssociationSet Name="Gp_membros" Association="Self.Gp_membros">
+      <End Role="Grupo" EntitySet="Grupo" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

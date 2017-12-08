@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1dd4db5ebe844751b073a42f4125cdb1" Name="Diagram1">
+        <EntityTypeShape EntityType="RedeSocialModel.Comentarios" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Conta" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Curtidas" Width="1.5" PointX="9.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Grupo" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Postagem" Width="1.5" PointX="7.5" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Sexo" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Tipo_grupo" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Usuario" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RedeSocialModel.Usuario_premium" Width="1.5" PointX="7.5" PointY="13.75" IsExpanded="true" />
+        <AssociationConnector Association="RedeSocialModel.FK__Comentari__id_po__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Comentari__id_us__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Usuario__tipo_co__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Curtidas__id_pos__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Curtidas__id_use__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Grupo__criador_g__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Grupo__gp_tipo__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Postagem__id_use__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Usuario__sexo__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.FK__Usuario_p__id_us__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="RedeSocialModel.Gp_membros" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

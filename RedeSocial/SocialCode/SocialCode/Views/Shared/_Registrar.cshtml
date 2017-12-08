@@ -1,0 +1,32 @@
+﻿@model SocialCode.ViewModels.RegisterViewModel
+
+@using (Html.BeginForm("Registrar", "Home", FormMethod.Post, new { id = "formRegistrar" }))
+{
+    @Html.ValidationMessageFor(x => x.Nome);
+    @Html.TextBoxFor(x => x.Nome, new { @placeholder = "Nome de usuário" })
+
+    @Html.ValidationMessageFor(x => x.Email);
+    @Html.TextBoxFor(x => x.Email, new { @placeholder = "Email" })
+
+    @Html.ValidationMessageFor(x => x.dtnascimento);
+    @Html.TextBoxFor(x => x.dtnascimento, new { @type = "date", @placeholder="Data de Nascimento" })
+
+    @Html.ValidationMessageFor(x => x.Senha);
+    @Html.PasswordFor(x => x.Senha, new { @placeholder = "Senha" })
+    
+    @Html.ValidationMessageFor(x => x.ConfirmaSenha);
+    @Html.PasswordFor(x => x.ConfirmaSenha, new { @placeholder = "Confirmar senha" })
+    
+   <!-- <form action="">
+        <input type="radio" name="sexo" value="0"> Feminino
+        <input type="radio" name="sexo" value="1"> Masculino
+        <input type="radio" name="sexo" value="2"> Outro
+    </form> -->
+    <button type="submit">Registrar</button>
+
+
+}
+
+
+
+

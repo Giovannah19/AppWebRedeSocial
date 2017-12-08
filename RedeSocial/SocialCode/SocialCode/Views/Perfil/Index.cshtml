@@ -1,0 +1,183 @@
+﻿@model  SocialCode.Models.Usuario
+@{
+    ViewBag.Title = "Index";
+}
+<div class="compny-profile">
+    <!-- Banner inicial -->
+    <div class="profile-bnr user-profile-bnr">
+        <div class="container">
+            <div class="pull-left">
+                <h2>Oi @Model.nome,</h2>
+                <h5>Bem vindo(a) de volta!</h5>
+            </div>
+
+            <!-- Top Riht Button --
+            <div class="right-top-bnr">
+                <div class="connect">
+                    <a href="#." data-toggle="modal" data-target="#myModal"><i class="fa fa-user-plus"></i> Connect</a> <a href="#."><i class="fa fa-share-alt"></i> Share</a>
+                    <div class="bt-ns"> <a href="#."><i class="fa fa-bookmark-o"></i> </a> <a href="#."><i class="fa fa-envelope-o"></i> </a> <a href="#."><i class="fa fa-exclamation"></i> </a> </div>
+                </div>
+            </div>-->
+        </div>
+
+        <!-- Modal POPUP -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="container">
+                        <h6><a class="close" href="#." data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></a> Send Message</h6>
+
+                        <!-- Forms -->
+                        <form action="#">
+                            <ul class="row">
+                                <li class="col-xs-6">
+                                    <input type="text" placeholder="First Name ">
+                                </li>
+                                <li class="col-xs-6">
+                                    <input type="text" placeholder="Last Name">
+                                </li>
+                                <li class="col-xs-6">
+                                    <input type="text" placeholder="Country">
+                                </li>
+                                <li class="col-xs-6">
+                                    <input type="text" placeholder="Email">
+                                </li>
+                                <li class="col-xs-12">
+                                    <textarea placeholder="Your Message"></textarea>
+                                </li>
+                                <li class="col-xs-12">
+                                    <button class="btn btn-primary">Send message</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Company Content -->
+    <div class="profile-company-content user-profile main-user" data-bg-color="f5f5f5">
+        <div class="container">
+            <div class="row">
+
+                <!-- Ícones de navegação -->
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="#profile" aria-expanded="true">Perfil</a></li>
+                        <li><a data-toggle="tab" href="#grupos">Meus grupos</a></li>
+                        <li><a data-toggle="tab" href="#posts">Postagens</a></li>
+                        <li><a data-toggle="tab" href="#new_friends">Pesquisar amigos</a></li>
+                        <li><a data-toggle="tab" href="#new_friends">Programador Premium</a></li>
+                    </ul>
+                </div>
+
+                <!-- Tab Content -->
+                <div class="col-md-12">
+                    <div class="tab-content">
+
+                        <!-- Perfil (Ícone e descrição de usuário) -->
+                        <div id="profile" class="tab-pane fade active in">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="profile-main">
+                                        <h3>Conte ao mundo um pouco sobre você, programador!</h3>
+                                        <div class="profile-in">
+                                            <div class="media-left">
+                                                <div class="img-profile">
+                                                    <img class="media-object" src="~/Content/images/upload/perfil-gih.jpg" />
+                                                </div>
+                                            </div>
+                                                <div class="media-body">
+                                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                                                    <div class="col-sm-12">
+                                                        <button class="btn btn-primary">Salvar</button>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+
+
+
+                                    <!-- Submissão de arquivos e downloads -->
+                                    <div class="sidebar">
+                                        <div class="main-title">
+                                            <h5>Arquivos Submetidos</h5>
+
+                                            <!-- Similar  -->
+                                            <div class="similar">
+                                                <div class="media">
+                                                    <div class="media-body">
+                                                        <h5>Descrição do arquivo</h5>
+                                                        <p>&nbsp;</p>
+                                                        <p>
+                                                            Submeta seus arquivos de projetos aqui!!!
+                                                        </p>
+
+                                                        <!-- Share -->
+                                                        <div class="share-w">
+                                                        <a href="#."><i class="fa fa-download"></i></a>
+                                                        <a href="#."><i class="fa fa-comment"></i></a> 
+                                                        <a href="#."><i class="fa fa-upload"></i></a>
+                                                        <a href="#."><i class="fa fa-thumbs-up"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Col -->
+                                <div class="col-md-4">
+
+                                    <!-- Edição de detalhes do perfil -->
+                                    <div class="sidebar">
+                                        <h5 class="main-title" style="  padding-bottom: 25px;">Detalhes de Perfil @Html.ActionLink("Editar", "Editar", null, new { @class = "pull-right btn btn-info" }) </h5>
+                                        <div class="sidebar-information">
+                                            <ul class="single-category">
+                                                <li class="row">
+                                                    <h6 class="title col-xs-6">Nome</h6>
+                                                    <span class="subtitle col-xs-6">@Model.nome</span>
+                                                </li>
+                                                <li class="row">
+                                                    <h6 class="title col-xs-6">Data de Nascimento</h6>
+                                                    <span class="subtitle col-xs-6">@Model.dt_nascimento</span>
+                                                </li>
+                                                
+                                                <li class="row">
+                                                    <h6 class="title col-xs-6">Sexo</h6>
+                                                    <span class="subtitle col-xs-6">Sexo</span>
+                                               
+                                                <li class="row">
+                                                    <h6 class="title col-xs-6">Interesses</h6>
+                                                    <span class="subtitle col-xs-6">Lista de Interesses</span>
+                                                </li>
+
+                                                <li class="row">
+                                                    <h6 class="title col-xs-6">Formação</h6>
+                                                    <span class="subtitle col-xs-6">Estudos...</span>
+                                                </li>
+
+                                                <li class="row">
+                                                    <h6 class="title col-xs-6">Git</h6>
+                                                    <span class="subtitle col-xs-6"><a href="#."> github.com</a></span>
+                                                </li>
+                                            </ul>
+                                            
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                        </div>
+
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
